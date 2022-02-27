@@ -1,0 +1,951 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="2.11">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="PIYUSH"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2022-02-25 10:50:11 AM"/>
+        <attribute name="created" value="UElZVVNIO0RFU0tUT1AtQUNRTzk2ODsyMDIyLTAyLTIxOzA4OjI3OjE3IEFNOzI3ODk="/>
+        <attribute name="edited" value="cHJhbmE7TEFQVE9QLUE5VDdIQlFJOzIwMjItMDItMjI7MDE6MTM6NTIgUE07MzsyOTcw"/>
+        <attribute name="edited" value="REVMTDtERVNLVE9QLU81NDlKTjM7MjAyMi0wMi0yNDswMzowOTo0MCBQTTsxO1BJWVVTSDtERVNLVE9QLUFDUU85Njg7MjAyMi0wMi0yMTswODoyNzoxNyBBTTtmaW5hbCAoMSkuZnByZzs2NzY2"/>
+        <attribute name="edited" value="REVMTDtERVNLVE9QLU81NDlKTjM7MjAyMi0wMi0yNDswNjozOTo0MSBQTTsxMjtERUxMO0RFU0tUT1AtTzU0OUpOMzsyMDIyLTAyLTI0OzA0OjI1OjQxIEFNO2NvcHkgZm9vZC5mcHJnOzY4MjQ="/>
+        <attribute name="edited" value="REVMTDtERVNLVE9QLU81NDlKTjM7MjAyMi0wMi0yNDswNzowNzo0NiBQTTszOTsyNzY1"/>
+        <attribute name="edited" value="UElZVVNIO0RFU0tUT1AtQUNRTzk2ODsyMDIyLTAyLTI1OzEwOjUwOjExIEFNOzM1OzI5Mzk="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <output expression="&quot;Hi, I am MINI,A personal fitness analyzer.&quot;" newline="True"/>
+            <declare name="gen, age" type="Integer" array="False" size=""/>
+            <declare name="height, weight, BMI" type="Real" array="False" size=""/>
+            <declare name="rname, developers" type="String" array="False" size=""/>
+            <assign variable="rname" expression="NAME()"/>
+            <assign variable="gen" expression="Gender(rname)"/>
+            <if expression="gen==1">
+                <then>
+                    <assign variable="rname" expression="&quot;Mr.&quot;&amp; rname"/>
+                    <output expression="&quot;Thank you for your response &quot;&amp; rname" newline="True"/>
+                </then>
+                <else>
+                    <if expression="gen==2">
+                        <then>
+                            <assign variable="rname" expression="&quot;Ms.&quot;&amp;rname"/>
+                            <output expression="&quot;Thank you for your response &quot;&amp; rname" newline="True"/>
+                        </then>
+                        <else/>
+                    </if>
+                </else>
+            </if>
+            <output expression="rname&amp;&quot; could you please tell me your age.&quot;" newline="True"/>
+            <input variable="age"/>
+            <assign variable="height" expression="h(rname)"/>
+            <assign variable="weight" expression="w(rname)"/>
+            <assign variable="BMI" expression="Weight/((Height)^2)"/>
+            <output expression="rname&amp;&quot; your BMI is equal to &quot;&amp;Tofixed(BMI,2)" newline="True"/>
+            <call expression="analysis(rname,age,gen)"/>
+            <output expression="&quot;Now the analysis is completed.&quot;" newline="True"/>
+            <output expression="&quot;Would you like me to asssist you to maintain a fit body?&quot;" newline="True"/>
+            <declare name="would" type="String" array="False" size=""/>
+            <input variable="would"/>
+            <if expression="would==&quot;yes&quot;">
+                <then>
+                    <output expression="&quot;I am really happy that you've choosen me as your assist.I'll do my best to support you.&quot;" newline="True"/>
+                    <call expression="guide(Weight,Height,BMI)"/>
+                </then>
+                <else/>
+            </if>
+            <output expression="&quot;Would you like to know my developers?&quot;" newline="True"/>
+            <input variable="developers"/>
+            <if expression="developers==&quot;yes&quot;">
+                <then>
+                    <call expression="developers"/>
+                </then>
+                <else/>
+            </if>
+            <output expression="&quot;Thank you for using me.Please stay healthy!&quot;" newline="True"/>
+        </body>
+    </function>
+    <function name="analysis" type="None" variable="">
+        <parameters>
+            <parameter name="rname" type="String" array="False"/>
+            <parameter name="age" type="Integer" array="False"/>
+            <parameter name="gender" type="Integer" array="False"/>
+        </parameters>
+        <body>
+            <output expression="rname&amp;&quot; how long would you like the duration of analysis be? 1 day or multiple days?let me know by choosing between (1/multiple) &quot;" newline="True"/>
+            <declare name="days" type="String" array="False" size=""/>
+            <input variable="days"/>
+            <if expression="days==&quot;1&quot;">
+                <then>
+                    <call expression="one(rname,age,gender)"/>
+                </then>
+                <else>
+                    <call expression="multi(rname,age)"/>
+                </else>
+            </if>
+        </body>
+    </function>
+    <function name="developers" type="None" variable="">
+        <parameters/>
+        <body>
+            <output expression="&quot;Chaitnya&quot;" newline="True"/>
+            <output expression="&quot;Priyamvada&quot;" newline="True"/>
+            <output expression="&quot;SUDHEEKAR&quot;" newline="True"/>
+            <output expression="&quot;Pranav&quot;" newline="True"/>
+            <output expression="&quot;PIYUSH&quot;" newline="True"/>
+        </body>
+    </function>
+    <function name="Gender" type="Integer" variable="gender">
+        <parameters>
+            <parameter name="rname" type="String" array="False"/>
+        </parameters>
+        <body>
+            <output expression="&quot;I am sorry,but I am still in the learning stage ,I cannot differentiate genders based on name, could you please let know your gender by pressing &quot;" newline="True"/>
+            <output expression="&quot;1.Male&quot;" newline="True"/>
+            <output expression="&quot;2.Female&quot;" newline="True"/>
+            <output expression="&quot;3.Others&quot;" newline="True"/>
+            <declare name="gender" type="Integer" array="False" size=""/>
+            <input variable="gender"/>
+        </body>
+    </function>
+    <function name="guide" type="None" variable="">
+        <parameters>
+            <parameter name="Weight" type="Real" array="False"/>
+            <parameter name="Height" type="Real" array="False"/>
+            <parameter name="BMI" type="Real" array="False"/>
+        </parameters>
+        <body>
+            <declare name="months" type="Real" array="False" size=""/>
+            <declare name="need, need2, pro, good" type="Real" array="False" size=""/>
+            <assign variable="pro" expression="Weight*2"/>
+            <output expression="&quot;Your BMI is &quot;&amp;BMI" newline="True"/>
+            <if expression="BMI&gt;=30">
+                <then>
+                    <output expression="&quot;I am sorry to inform you but your BMI shows that you are obese.fret not I shall guide you.loosing 3 kgs a month is healthy.so I shall suggest a plan on the same. &quot;" newline="True"/>
+                    <output expression="&quot;Every day make sure u consume around &quot;&amp;Weight&amp;&quot;g of protein.The calorie in take must be in the range of 2200 to 2250 calories everday.&quot;" newline="True"/>
+                    <output expression="&quot;As for the Excersice plan make sure You walk around 195000 steps everday.Since it would be difficult any heavy excersices, please restrain from doing any other than walking.&quot;" newline="True"/>
+                    <assign variable="need" expression="30*((Height)^2)"/>
+                    <assign variable="good" expression="Weight-need"/>
+                    <assign variable="months" expression="good/3"/>
+                    <output expression="&quot;Follow this routein for the next &quot;&amp;months&amp;&quot; months.&quot;" newline="True"/>
+                    <breakpoint/>
+                    <assign variable="need2" expression="25*((Height)^2)"/>
+                    <assign variable="good" expression="need-need2"/>
+                    <assign variable="months" expression="good/4"/>
+                    <output expression="&quot;Congratulations!After you've done the above plan your BMI should be around 25.NOW you come under the category of overweight.&quot;" newline="True"/>
+                    <output expression="&quot;Your BMI comes under the catagorie of over weight.Loosing around 4 kgs a month is healthy,so we shall plan the same.&quot;" newline="True"/>
+                    <output expression="&quot;Every day make sure u consume around &quot;&amp;Weight&amp;&quot;g of protein.The calorie in take must be in the range of 2200 to 2250 calories everday.&quot;" newline="True"/>
+                    <output expression="&quot;AS for the Excersice plan make sure You walk around 20000 steps everday.Since you come under over weight catogery a moderate excersice is a must.&quot;" newline="True"/>
+                    <output expression="&quot;EXCERSICE PLAN:&#13;&#10;30 minutes of push ups&#13;&#10;and 30 min of sit ups&quot;" newline="True"/>
+                    <output expression="&quot;This plan must be followed for the next &quot;&amp;months&amp;&quot; months.&quot;" newline="True"/>
+                </then>
+                <else>
+                    <if expression="BMI&gt;25">
+                        <then>
+                            <assign variable="need" expression="25*((Height)^2)"/>
+                            <assign variable="good" expression="Weight-need"/>
+                            <assign variable="months" expression="good/4"/>
+                            <output expression="&quot; I am really sorry to inform you,but your BMI shows that you are OVERWEIGHT.Fret now I shall help you loose weight.loosing around 4kgs a month is healthy.so we shall plan the same.&quot;" newline="True"/>
+                            <output expression="&quot;Every day make sure u consume around &quot;&amp;Weight&amp;&quot;g of protein.The calorie in take must be in the range of 2200 to 2250 calories everday.&quot;" newline="True"/>
+                            <output expression="&quot;As for the Excersice plan make sure You walk around 20000 steps everday.Since you come under over weight catogery a moderate excersice is a must.&quot;" newline="True"/>
+                            <output expression="&quot;EXCERSICE PLAN:&#13;&#10;30 minutes of push ups&#13;&#10;and 30 min of sit ups&quot;" newline="True"/>
+                            <output expression="&quot;This plan must be followed for the next &quot;&amp;months&amp;&quot; months.&quot;" newline="True"/>
+                        </then>
+                        <else>
+                            <if expression="BMI&gt;18">
+                                <then>
+                                    <output expression="&quot;Wow, I your BMI shows that you are perfect. You dont need my assistance at all.I am really happy to see you healthy.please maintain the same.&quot;" newline="True"/>
+                                </then>
+                                <else>
+                                    <assign variable="need" expression="18*((Height)^2)"/>
+                                    <assign variable="good" expression="need-Weight"/>
+                                    <assign variable="months" expression="good/3"/>
+                                    <output expression="&quot;I am really sorry to inform you but your BMI shows that you are under weight.&quot;" newline="True"/>
+                                    <output expression="&quot;fret not I shall help you gain mass.lets set our target as reaching BMI 18!&quot;" newline="True"/>
+                                    <output expression="&quot;Our target is to gain 3 kgs each month.Make sure You consume &quot;&amp;pro&amp;&quot;g of protein everyday, And consume 2800 calories daily&quot;" newline="True"/>
+                                    <output expression="&quot;Though you are under weight,Excersiceing daily is a must.make sure u spend 10 min daily on push ups to strengthen your arms and 10 min on sit-ups.&quot;" newline="True"/>
+                                    <output expression="&quot;Please follow the plan for next &quot;&amp;months&amp;&quot;months.&quot;" newline="True"/>
+                                </else>
+                            </if>
+                        </else>
+                    </if>
+                </else>
+            </if>
+        </body>
+    </function>
+    <function name="h" type="Real" variable="height">
+        <parameters>
+            <parameter name="rname" type="String" array="False"/>
+        </parameters>
+        <body>
+            <declare name="age, HeightInput, mistake" type="Integer" array="False" size=""/>
+            <declare name="Height" type="Real" array="False" size=""/>
+            <declare name="HeightUnits" type="String" array="False" size=""/>
+            <assign variable="mistake" expression="1"/>
+            <declare name="iinches, inchesportion" type="Real" array="False" size=""/>
+            <while expression="mistake==1">
+                <output expression="rname &amp; &quot; can you tell me what units would you like to give for height (feet/cm/m)&quot;" newline="True"/>
+                <comment text="height will be taken in different units and converted into meters for furthur usage"/>
+                <input variable="HeightUnits"/>
+                <if expression="Len(HeightUnits)==4">
+                    <then>
+                        <output expression="&quot;Ooh &quot; &amp; rname &amp; &quot; you've selected feet units,could u please enter your height in feet, and the the inches portion of height.&quot;" newline="True"/>
+                        <input variable="HeightInput"/>
+                        <assign variable="iinches" expression="heightInput*12"/>
+                        <output expression="&quot;Now the inches portion please-&quot;" newline="True"/>
+                        <input variable="inchesportion"/>
+                        <assign variable="iinches" expression="iinches+inchesportion"/>
+                        <assign variable="Height" expression="iinches*2.57"/>
+                        <assign variable="Height" expression="Height/100"/>
+                        <assign variable="mistake" expression="0"/>
+                    </then>
+                    <else>
+                        <if expression="Len(HeightUnits)==2">
+                            <then>
+                                <output expression="&quot;Ooh &quot; &amp; rname &amp; &quot; you selected centemeter units.Could you please enter your height in centimeters.&quot;" newline="True"/>
+                                <input variable="HeightInput"/>
+                                <assign variable="Height" expression="HeightInput*0.01"/>
+                                <assign variable="mistake" expression="0"/>
+                            </then>
+                            <else>
+                                <if expression="len(HeightUnits)==1">
+                                    <then>
+                                        <output expression="&quot;Ooh &quot; &amp; rname &amp; &quot; you selected meter units.Could you please enter your height in meters.&quot;" newline="True"/>
+                                        <input variable="Height"/>
+                                        <assign variable="mistake" expression="0"/>
+                                    </then>
+                                    <else>
+                                        <output expression="&quot;You selected the wrong units could you please re-enter.&quot;" newline="True"/>
+                                        <assign variable="mistake" expression="1"/>
+                                    </else>
+                                </if>
+                            </else>
+                        </if>
+                    </else>
+                </if>
+            </while>
+        </body>
+    </function>
+    <function name="multi" type="None" variable="">
+        <parameters>
+            <parameter name="rname" type="String" array="False"/>
+            <parameter name="age" type="Integer" array="False"/>
+        </parameters>
+        <body>
+            <declare name="plan, ForLoop, Quantity, SearchTemporary, NewFoodCalories, FoodCalories, FoodStorage, cl, f, net, kilo, FoodNumericalInput, IntFoodName, SpotFilling" type="Integer" array="False" size=""/>
+            <declare name="FoodAlert, FoodDesision, FoodName, i, h, FoodInput" type="String" array="False" size=""/>
+            <declare name="Food" type="String" array="True" size="30"/>
+            <declare name="ItemNo" type="Integer" array="True" size="30"/>
+            <output expression="&quot;Great, &quot; &amp; rname &amp; &quot; you chose a multiday plan.Could you please tell me how many days would you like the plan to be of.&quot;" newline="True"/>
+            <input variable="plan"/>
+            <declare name="days" type="Integer" array="True" size="plan"/>
+            <for variable="ForLoop" start="0" end="29" direction="inc" step="1">
+                <assign variable="Food[ForLoop]" expression="&quot; &quot;"/>
+                <assign variable="ItemNo[ForLoop]" expression="0"/>
+            </for>
+            <assign variable="FoodStorage" expression="0"/>
+            <for variable="ForLoop" start="1" end="plan" direction="inc" step="1">
+                <output expression="&quot;Heyy this is your day &quot; &amp; ForLoop" newline="True"/>
+                <output expression="&quot;can you tell me what are the food items you ate today&quot;" newline="True"/>
+                <output expression="&quot;Given below is a small list of food items.Please select the ones you have consumed,if what you have consumed is'nt on the list please let me know the name of the food item.&quot;" newline="True"/>
+                <output expression="&quot;1.eggs&quot;" newline="True"/>
+                <output expression="&quot;2.milk&quot;" newline="True"/>
+                <output expression="&quot;3.tea&quot;" newline="True"/>
+                <output expression="&quot;4.coffee&quot;" newline="True"/>
+                <output expression="&quot;5.bread&quot;" newline="True"/>
+                <output expression="&quot;6.bananna&quot;" newline="True"/>
+                <output expression="&quot;7.white rice&quot;" newline="True"/>
+                <output expression="&quot;8.dosa&quot;" newline="True"/>
+                <output expression="&quot;9.roti&quot;" newline="True"/>
+                <output expression="&quot;10.sandwitch&quot;" newline="True"/>
+                <output expression="&quot;11.salmon fish&quot;" newline="True"/>
+                <output expression="&quot;12.burger&quot;" newline="True"/>
+                <output expression="&quot;13.chicken biryani&quot;" newline="True"/>
+                <output expression="&quot;14.steak&quot;" newline="True"/>
+                <assign variable="Food[0]" expression="&quot;egg&quot;"/>
+                <assign variable="Food[1]" expression="&quot;milk&quot;"/>
+                <assign variable="Food[2]" expression="&quot;tea&quot;"/>
+                <assign variable="Food[3]" expression="&quot;coffee&quot;"/>
+                <assign variable="Food[4]" expression="&quot;bread&quot;"/>
+                <assign variable="Food[5]" expression="&quot;banana&quot;"/>
+                <assign variable="Food[6]" expression="&quot;white rice&quot;"/>
+                <assign variable="Food[7]" expression="&quot;dosa&quot;"/>
+                <assign variable="Food[8]" expression="&quot;roti&quot;"/>
+                <assign variable="Food[9]" expression="&quot;sandwitch&quot;"/>
+                <assign variable="Food[10]" expression="&quot;salmon&quot;"/>
+                <assign variable="Food[11]" expression="&quot;burger&quot;"/>
+                <assign variable="Food[12]" expression="&quot;chicken biryani&quot;"/>
+                <assign variable="Food[13]" expression="&quot;steak&quot;"/>
+                <assign variable="SpotFilling" expression="14"/>
+                <do expression="FoodAlert==&quot;no&quot;">
+                    <do expression="FoodDesision=&quot;yes&quot;">
+                        <assign variable="ItemNo[0]" expression="78"/>
+                        <assign variable="ItemNo[1]" expression="87"/>
+                        <assign variable="ItemNo[2]" expression="55"/>
+                        <assign variable="ItemNo[3]" expression="53"/>
+                        <assign variable="ItemNo[4]" expression="32"/>
+                        <assign variable="ItemNo[5]" expression="89"/>
+                        <assign variable="ItemNo[6]" expression="78"/>
+                        <assign variable="ItemNo[7]" expression="113"/>
+                        <assign variable="ItemNo[8]" expression="65"/>
+                        <assign variable="ItemNo[9]" expression="226"/>
+                        <assign variable="ItemNo[10]" expression="256"/>
+                        <assign variable="ItemNo[11]" expression="295"/>
+                        <assign variable="ItemNo[12]" expression="Random(100)+400"/>
+                        <assign variable="ItemNo[13]" expression="300"/>
+                        <do expression="FoodDesision==&quot;yes&quot;">
+                            <output expression="&quot;Could you tell me the food item&quot;" newline="True"/>
+                            <input variable="FoodName"/>
+                            <assign variable="SearchTemporary" expression="200"/>
+                            <for variable="ForLoop" start="0" end="29" direction="inc" step="1">
+                                <if expression="Food[ForLoop]==FoodName">
+                                    <then>
+                                        <assign variable="SearchTemporary" expression="ForLoop"/>
+                                    </then>
+                                    <else/>
+                                </if>
+                            </for>
+                            <assign variable="NewFoodCalories" expression="0"/>
+                            <if expression="SearchTemporary==200">
+                                <then>
+                                    <assign variable="Food[SpotFilling]" expression="FoodName"/>
+                                    <output expression="&quot;Can you tell me how many calories are there in the &quot; &amp; foodName &amp;&quot; you eat&quot;" newline="True"/>
+                                    <input variable="NewFoodCalories"/>
+                                    <assign variable="ItemNO[SpotFilling]" expression="NewFoodCalories"/>
+                                    <assign variable="FoodCalories" expression="NewFoodCalories"/>
+                                    <assign variable="SpotFilling" expression="SpotFilling+1"/>
+                                </then>
+                                <else>
+                                    <if expression="Len(FoodName)&gt;=7 || Len(FoodName)== 3">
+                                        <then>
+                                            <output expression="&quot;How many cups of &quot; &amp; FoodName &amp; &quot; have you eaten &quot;" newline="True"/>
+                                            <input variable="Quantity"/>
+                                        </then>
+                                        <else>
+                                            <output expression="&quot;How many &quot; &amp; FoodName &amp; &quot;s have you eaten&quot;" newline="True"/>
+                                            <input variable="Quantity"/>
+                                        </else>
+                                    </if>
+                                    <assign variable="FoodCalories" expression="Quantity*(ItemNo[SearchTemporary])"/>
+                                </else>
+                            </if>
+                            <assign variable="FoodStorage" expression="FoodStorage+FoodCalories"/>
+                            <output expression="&quot;Are there any food items (yes/no) &quot;" newline="True"/>
+                            <input variable="FoodDesision"/>
+                        </do>
+                    </do>
+                    <output expression="&quot;Are you sure that you gave all the food items you  eaten (yes/no)&quot;" newline="True"/>
+                    <input variable="FoodAlert"/>
+                </do>
+                <assign variable="cl" expression="FoodStorage"/>
+                <output expression="cl" newline="True"/>
+                <breakpoint/>
+                <declare name="steps, u, cl2" type="Integer" array="False" size=""/>
+                <declare name="go, ol" type="String" array="False" size=""/>
+                <assign variable="cl2" expression="0"/>
+                <output expression="&quot;Hello &quot;&amp;rname&amp;&quot;lets start counting down the amount of calories you have burnt today.&quot;" newline="True"/>
+                <output expression="&quot;How many steps have made today.&quot;" newline="True"/>
+                <input variable="steps"/>
+                <assign variable="u" expression="steps*0.04"/>
+                <assign variable="cl2" expression="u"/>
+                <assign variable="ol" expression="&quot;yes&quot;"/>
+                <while expression="ol==&quot;yes&quot;">
+                    <output expression="&quot;Thank you for your response.Now lets countdown clories burnt on excersices if made any.&quot;" newline="True"/>
+                    <output expression="&quot;Please select an option in the given below list if you've made any of thoese excersices if you haven't made any of these please enter 'no'.please enter 'non' if u haven't made any excersice at all.&quot;" newline="True"/>
+                    <output expression="&quot;1)push-ups&#13;&#10;2)sit-ups&#13;&#10;3)Bridge&#13;&#10;4)Triceps bench Dip&#13;&#10;5) Lunge&quot;" newline="True"/>
+                    <input variable="go"/>
+                    <if expression="go==&quot;no&quot;">
+                        <then>
+                            <output expression="&quot;I am extreamly sorry,but the excersice you have done isn't on the list.Could you please enter the amount of calories you have burnt on the excersice.&quot;" newline="True"/>
+                            <input variable="h"/>
+                            <assign variable="cl2" expression="cl2+h"/>
+                            <output expression="&quot;Have you made any more excersices?&quot;" newline="True"/>
+                        </then>
+                        <else>
+                            <if expression="go==&quot;1&quot;">
+                                <then>
+                                    <output expression="&quot;You've choosen push-ups.could you please enter the amount of time you've spent on push-ups in minutes &quot;" newline="True"/>
+                                    <input variable="h"/>
+                                    <assign variable="f" expression="h*7"/>
+                                    <assign variable="cl2" expression="cl2+f"/>
+                                    <output expression="&quot;Have you made any more excersices?&quot;" newline="True"/>
+                                </then>
+                                <else>
+                                    <if expression="go==&quot;2&quot;">
+                                        <then>
+                                            <output expression="&quot;You've choosen sit-ups.could you please enter the amount of time you've spent on sit-ups in minutes(moderate pace)&quot;" newline="True"/>
+                                            <input variable="h"/>
+                                            <assign variable="f" expression="h*3"/>
+                                            <assign variable="cl2" expression="cl2+f"/>
+                                            <output expression="&quot;Have you made any more excersices?&quot;" newline="True"/>
+                                        </then>
+                                        <else>
+                                            <if expression="go==&quot;3&quot;">
+                                                <then>
+                                                    <output expression="&quot;You've choosen Bridge.could you please enter the amount of time you've spent on Bridge in minutes&quot;" newline="True"/>
+                                                    <input variable="h"/>
+                                                    <assign variable="f" expression="h*8"/>
+                                                    <assign variable="cl2" expression="cl2+f"/>
+                                                    <output expression="&quot;Have you made any more excersices?&quot;" newline="True"/>
+                                                </then>
+                                                <else>
+                                                    <if expression="go==&quot;4&quot;">
+                                                        <then>
+                                                            <output expression="&quot;You've choosen Triceps bench Dip.could you please enter the amount of time you've spent on Triceps dip.&quot;" newline="True"/>
+                                                            <input variable="h"/>
+                                                            <assign variable="f" expression="h*4"/>
+                                                            <assign variable="cl2" expression="cl2+f"/>
+                                                            <output expression="&quot;Have you made any more excersices?&quot;" newline="True"/>
+                                                        </then>
+                                                        <else>
+                                                            <if expression="go==&quot;5&quot;">
+                                                                <then>
+                                                                    <output expression="&quot;You've choosen Lunge.could you please enter the amount of time you've spent on Lunge in minutes&quot;" newline="True"/>
+                                                                    <input variable="h"/>
+                                                                    <assign variable="f" expression="h*6"/>
+                                                                    <assign variable="cl2" expression="cl2+f"/>
+                                                                    <output expression="&quot;Have you made any more excersices?&quot;" newline="True"/>
+                                                                </then>
+                                                                <else>
+                                                                    <output expression="&quot;Thats not a really good habbit.please excersice daily.Your body needs it&quot;" newline="True"/>
+                                                                    <output expression="&quot;PLease enter 'leave' to leave this session.&quot;" newline="True"/>
+                                                                </else>
+                                                            </if>
+                                                        </else>
+                                                    </if>
+                                                </else>
+                                            </if>
+                                        </else>
+                                    </if>
+                                </else>
+                            </if>
+                        </else>
+                    </if>
+                    <input variable="ol"/>
+                </while>
+                <if expression="age&lt;=18">
+                    <then>
+                        <assign variable="cl2" expression="cl2+2800"/>
+                    </then>
+                    <else>
+                        <if expression="age&lt;=30">
+                            <then>
+                                <assign variable="cl2" expression="cl2+2400"/>
+                            </then>
+                            <else>
+                                <if expression="age&lt;=60">
+                                    <then>
+                                        <assign variable="cl2" expression="cl2+2000"/>
+                                    </then>
+                                    <else>
+                                        <assign variable="cl2" expression="cl2+1800"/>
+                                    </else>
+                                </if>
+                            </else>
+                        </if>
+                    </else>
+                </if>
+                <declare name="kilos" type="Integer" array="False" size=""/>
+                <output expression="&quot;Today you have consumed &quot;&amp;cl&amp;&quot; calories.&quot;" newline="True"/>
+                <output expression="&quot;Today you have Burnt &quot;&amp;cl2&amp;&quot; calories.&quot;" newline="True"/>
+                <assign variable="net" expression="cl-cl2"/>
+                <if expression="net&gt;0">
+                    <then>
+                        <assign variable="kilo" expression="(net/7700)*30"/>
+                        <output expression="&quot;Today you have gained &quot;&amp;net&amp;&quot; calories.&quot;" newline="True"/>
+                        <output expression="&quot;If you continue the same for next 30 days then you will gain &quot;&amp;kilo&amp;&quot; kg.&quot;" newline="True"/>
+                    </then>
+                    <else>
+                        <assign variable="net" expression="net*(-1)"/>
+                        <assign variable="kilo" expression="(net/7700)*30"/>
+                        <output expression="&quot;Today you have lost &quot;&amp;net&amp;&quot; calories&quot;" newline="True"/>
+                        <output expression="&quot;If you continue the for next 30 days then you will loose &quot;&amp;kilo&amp;&quot; kg.&quot;" newline="True"/>
+                        <assign variable="net" expression="net*(-1)"/>
+                    </else>
+                </if>
+            </for>
+            <declare name="zac, mac" type="Integer" array="False" size=""/>
+            <assign variable="zac" expression="mac/7700"/>
+            <output expression="&quot;Its been a long journey.&quot;&amp;rname&amp;&quot;. Now your &quot;&amp;plan&amp;&quot; days plan has ended.&quot;" newline="True"/>
+            <if expression="zac&gt;0">
+                <then>
+                    <output expression="&quot;Result: you have gained &quot;&amp;zac&amp;&quot;kgs over the period of course.&quot;" newline="True"/>
+                </then>
+                <else>
+                    <assign variable="zac" expression="zac*(-1)"/>
+                    <output expression="&quot;Result: you have lost &quot;&amp;zac&amp;&quot;kgs over the period of course.&quot;" newline="True"/>
+                </else>
+            </if>
+        </body>
+    </function>
+    <function name="NAME" type="String" variable="rname">
+        <parameters/>
+        <body>
+            <declare name="i" type="Integer" array="False" size=""/>
+            <declare name="rname, k" type="String" array="False" size=""/>
+            <output expression="&quot;Could you please tell me your name?&quot;" newline="True"/>
+            <input variable="rname"/>
+            <assign variable="i" expression="Random(3)"/>
+            <if expression="i==1">
+                <then>
+                    <assign variable="k" expression="&quot;beautiful&quot;"/>
+                    <output expression="rname&amp;&quot;,what a &quot;&amp; k &amp;&quot; name.&quot;" newline="True"/>
+                </then>
+                <else>
+                    <if expression="i==2">
+                        <then>
+                            <assign variable="k" expression="&quot;sweet&quot;"/>
+                            <output expression="rname&amp;&quot;,what a &quot;&amp; k &amp;&quot; name.&quot;" newline="True"/>
+                        </then>
+                        <else>
+                            <assign variable="k" expression="&quot;nice&quot;"/>
+                            <output expression="rname&amp;&quot;,what a &quot;&amp; k &amp;&quot; name.&quot;" newline="True"/>
+                        </else>
+                    </if>
+                </else>
+            </if>
+        </body>
+    </function>
+    <function name="one" type="None" variable="">
+        <parameters>
+            <parameter name="rname" type="String" array="False"/>
+            <parameter name="age" type="Integer" array="False"/>
+            <parameter name="gender" type="Integer" array="False"/>
+        </parameters>
+        <body>
+            <declare name="g1, l, k" type="String" array="False" size=""/>
+            <declare name="quantity, j, cl2, h, net, cl, clo, kilo, Calorf, iesGoal, GoalSteps, FinalGoalReachCalories, FinalGoalReachSteps" type="Integer" array="False" size=""/>
+            <declare name="caloriesGoal" type="Real" array="False" size=""/>
+            <declare name="f" type="Real" array="False" size=""/>
+            <if expression="gender==1">
+                <then>
+                    <assign variable="g1" expression="&quot;Sir,&quot;"/>
+                </then>
+                <else>
+                    <assign variable="g1" expression="&quot;Mam,&quot;"/>
+                </else>
+            </if>
+            <output expression="g1&amp;&quot; you  have choosen a 1 day plan.&quot;" newline="True"/>
+            <output expression="&quot;Before we begin,could you please tell me your personal goals.&quot;" newline="True"/>
+            <output expression="&quot;How many steps would you like to walk today&quot;" newline="True"/>
+            <input variable="GoalSteps"/>
+            <output expression="&quot;How many calories would youy like to burn today&quot;" newline="True"/>
+            <input variable="CaloriesGoal"/>
+            <output expression="&quot;Thank you for your response.&quot;" newline="True"/>
+            <output expression="&quot;In a one day plan,Based on your calorie consumption and calories burnt today as an average,I shall give ar eport of what changes shall happen to your body by the end of a month. &quot;" newline="True"/>
+            <output expression="&quot;Early hours of the day!&quot;" newline="True"/>
+            <breakpoint/>
+            <output expression="&quot;Please let me know if you've consumed an item from the below list&#13;&#10;by selecting the corresponding number.If you haven't then enter 'non'&quot;" newline="True"/>
+            <assign variable="l" expression="&quot;yes&quot;"/>
+            <assign variable="cl" expression="0"/>
+            <do expression="l==&quot;yes&quot;">
+                <output expression="&quot;1.eggs&quot;" newline="True"/>
+                <output expression="&quot;2.milk&quot;" newline="True"/>
+                <output expression="&quot;3.tea&quot;" newline="True"/>
+                <output expression="&quot;4.coffee&quot;" newline="True"/>
+                <output expression="&quot;5.bread&quot;" newline="True"/>
+                <output expression="&quot;6.banana&quot;" newline="True"/>
+                <input variable="k"/>
+                <if expression="k==&quot;non&quot;">
+                    <then>
+                        <output expression="&quot;I am extreamly sorry,that the food item you have eaten isn't on the list.Could you please enter the amount of calories you have consumed on the food item.&quot;" newline="True"/>
+                        <input variable="clo"/>
+                        <assign variable="cl" expression="cl+clo"/>
+                    </then>
+                    <else>
+                        <if expression="k==&quot;1&quot;">
+                            <then>
+                                <output expression="&quot;I see you've eaten eggs.Could you please let me know the number of eggs you have consumed.&quot;" newline="True"/>
+                                <input variable="quantity"/>
+                                <assign variable="j" expression="quantity*78"/>
+                                <assign variable="cl" expression="cl+j"/>
+                            </then>
+                            <else>
+                                <if expression="k==&quot;2&quot;">
+                                    <then>
+                                        <output expression="&quot;Ooh milk, really healthy,good for bones.could you tell me how many glasses of milk have u consumed.(1glass=approx 200ml)&quot;" newline="True"/>
+                                        <input variable="quantity"/>
+                                        <assign variable="j" expression="quantity*87"/>
+                                        <assign variable="cl" expression="cl+j"/>
+                                    </then>
+                                    <else>
+                                        <if expression="k==&quot;3&quot;">
+                                            <then>
+                                                <output expression="&quot;Tea.A good start.could u please tell how many cups of tea did you have today.(1cup=approx 50ml)&quot;" newline="True"/>
+                                                <input variable="quantity"/>
+                                                <assign variable="j" expression="quantity*55"/>
+                                                <assign variable="cl" expression="cl+j"/>
+                                            </then>
+                                            <else>
+                                                <if expression="k==&quot;4&quot;">
+                                                    <then>
+                                                        <output expression="&quot;Coffee.A good start.could u please tell how many cups of tea did you have today.(1cup=approx 50ml)&quot;" newline="True"/>
+                                                        <input variable="quantity"/>
+                                                        <assign variable="j" expression="quantity*53"/>
+                                                        <assign variable="cl" expression="cl+j"/>
+                                                    </then>
+                                                    <else>
+                                                        <if expression="k==&quot;5&quot;">
+                                                            <then>
+                                                                <output expression="&quot;Bread,nice.could you tell me how many slices of bread did you have today.&quot;" newline="True"/>
+                                                                <input variable="quantity"/>
+                                                                <assign variable="j" expression="quantity*32"/>
+                                                                <assign variable="cl" expression="cl+j"/>
+                                                            </then>
+                                                            <else>
+                                                                <if expression="k==&quot;6&quot;">
+                                                                    <then>
+                                                                        <output expression="&quot;You,ve choosen bananna.could you please tell the number of bananna's you have consumed in the day.(medium sized)&quot;" newline="True"/>
+                                                                        <input variable="quantity"/>
+                                                                        <assign variable="j" expression="quantity*89"/>
+                                                                        <assign variable="cl" expression="cl+j"/>
+                                                                    </then>
+                                                                    <else>
+                                                                        <output expression="&quot;You have entered an invalid response&quot;" newline="True"/>
+                                                                    </else>
+                                                                </if>
+                                                            </else>
+                                                        </if>
+                                                    </else>
+                                                </if>
+                                            </else>
+                                        </if>
+                                    </else>
+                                </if>
+                            </else>
+                        </if>
+                    </else>
+                </if>
+                <output expression="&quot;Have you consumed any other food items?&quot;" newline="True"/>
+                <input variable="l"/>
+            </do>
+            <output expression="&quot;Lets meet again in the afternoon&quot;" newline="True"/>
+            <breakpoint/>
+            <output expression="&quot;Afternoon!&quot;" newline="True"/>
+            <output expression="&quot;Please let me know if you've consumed an item from the below list&#13;&#10;by selecting the corresponding number.If you haven't then enter 'non'&quot;" newline="True"/>
+            <assign variable="l" expression="&quot;yes&quot;"/>
+            <do expression="l==&quot;yes&quot;">
+                <output expression="&quot;1.steamed rice&quot;" newline="True"/>
+                <output expression="&quot;2.steak&quot;" newline="True"/>
+                <output expression="&quot;3.chapathi&quot;" newline="True"/>
+                <output expression="&quot;4.Ham sandwitch&quot;" newline="True"/>
+                <output expression="&quot;5.Salmon fish coocked&quot;" newline="True"/>
+                <input variable="k"/>
+                <if expression="k==&quot;non&quot;">
+                    <then>
+                        <output expression="&quot;I am extreamly sorry,that the food item you have eaten isn't on the list.Could you please enter the amount of calories you have consumed on the food item.&quot;" newline="True"/>
+                        <input variable="clo"/>
+                        <assign variable="cl" expression="cl+clo"/>
+                    </then>
+                    <else>
+                        <if expression="k==&quot;1&quot;">
+                            <then>
+                                <output expression="&quot;You've choosen Rice.Could you please let me know the number of blowls of rice you have consumed.(1bowl =100grams).&quot;" newline="True"/>
+                                <input variable="quantity"/>
+                                <assign variable="j" expression="quantity*78"/>
+                                <assign variable="cl" expression="cl+j"/>
+                            </then>
+                            <else>
+                                <if expression="k==&quot;2&quot;">
+                                    <then>
+                                        <output expression="&quot;You've choosen steak.Could you please let me know the number of   steaks you have consumed.(1 steak=141g) &quot;" newline="True"/>
+                                        <input variable="quantity"/>
+                                        <assign variable="j" expression="quantity*300"/>
+                                        <assign variable="cl" expression="cl+j"/>
+                                    </then>
+                                    <else>
+                                        <if expression="k==&quot;3&quot;">
+                                            <then>
+                                                <output expression="&quot;You've choosen chapati.Could you please let me know the number of chapaties you have consumed. &quot;" newline="True"/>
+                                                <input variable="quantity"/>
+                                                <assign variable="j" expression="quantity*65"/>
+                                                <assign variable="cl" expression="cl+j"/>
+                                            </then>
+                                            <else>
+                                                <if expression="k==&quot;4&quot;">
+                                                    <then>
+                                                        <output expression="&quot;You've choosen ham sandwitch.Could you please let me know the number of hams you have consumed.(1ham=85gramms)&quot;" newline="True"/>
+                                                        <input variable="quantity"/>
+                                                        <assign variable="j" expression="quantity*226"/>
+                                                        <assign variable="cl" expression="cl+j"/>
+                                                    </then>
+                                                    <else>
+                                                        <if expression="k==&quot;5&quot;">
+                                                            <then>
+                                                                <output expression="&quot;You've choosen Salmon fish.Could you please let me know the number of blowls of salmons you have consumed.(1bowl =100grams).&quot;" newline="True"/>
+                                                                <input variable="quantity"/>
+                                                                <assign variable="j" expression="quantity*256"/>
+                                                                <assign variable="cl" expression="cl+j"/>
+                                                            </then>
+                                                            <else>
+                                                                <output expression="&quot;You have entered an invalid response&quot;" newline="True"/>
+                                                            </else>
+                                                        </if>
+                                                    </else>
+                                                </if>
+                                            </else>
+                                        </if>
+                                    </else>
+                                </if>
+                            </else>
+                        </if>
+                    </else>
+                </if>
+                <output expression="&quot;Have you consumed any other food items?&quot;" newline="True"/>
+                <input variable="l"/>
+            </do>
+            <output expression="&quot;Lets meet again in the evening.&quot;" newline="True"/>
+            <breakpoint/>
+            <output expression="&quot;EVENING!&quot;" newline="True"/>
+            <output expression="&quot;Please let me know if you've consumed an item from the below list&#13;&#10;by selecting the corresponding number.If you haven't then enter 'non'&quot;" newline="True"/>
+            <assign variable="l" expression="&quot;yes&quot;"/>
+            <do expression="l==&quot;yes&quot;">
+                <output expression="&quot;1.steamed rice&quot;" newline="True"/>
+                <output expression="&quot;2.steak&quot;" newline="True"/>
+                <output expression="&quot;3.chapathi&quot;" newline="True"/>
+                <output expression="&quot;4.Ham sandwitch&quot;" newline="True"/>
+                <output expression="&quot;5.Salmon fish coocked&quot;" newline="True"/>
+                <input variable="k"/>
+                <if expression="k==&quot;non&quot;">
+                    <then>
+                        <output expression="&quot;I am extreamly sorry,but the food item you have eaten isn't on the list.Could you please enter the amount of calories you have consumed on the food item.&quot;" newline="True"/>
+                        <input variable="clo"/>
+                        <assign variable="cl" expression="cl+clo"/>
+                    </then>
+                    <else>
+                        <if expression="k==&quot;1&quot;">
+                            <then>
+                                <output expression="&quot;You've choosen Rice.Could you please let me know the number of blowls of rice you have consumed.(1bowl =100grams).&quot;" newline="True"/>
+                                <input variable="quantity"/>
+                                <assign variable="j" expression="quantity*78"/>
+                                <assign variable="cl" expression="cl+j"/>
+                            </then>
+                            <else>
+                                <if expression="k==&quot;2&quot;">
+                                    <then>
+                                        <output expression="&quot;You've choosen steak.Could you please let me know the number of   steaks you have consumed.(1 steak=141g) &quot;" newline="True"/>
+                                        <input variable="quantity"/>
+                                        <assign variable="j" expression="quantity*300"/>
+                                        <assign variable="cl" expression="cl+j"/>
+                                    </then>
+                                    <else>
+                                        <if expression="k==&quot;3&quot;">
+                                            <then>
+                                                <output expression="&quot;You've choosen chapati.Could you please let me know the number of chapaties you have consumed. &quot;" newline="True"/>
+                                                <input variable="quantity"/>
+                                                <assign variable="j" expression="quantity*65"/>
+                                                <assign variable="cl" expression="cl+j"/>
+                                            </then>
+                                            <else>
+                                                <if expression="k==&quot;4&quot;">
+                                                    <then>
+                                                        <output expression="&quot;You've choosen ham sandwitch.Could you please let me know the number of hams you have consumed.(1ham=85gramms)&quot;" newline="True"/>
+                                                        <input variable="quantity"/>
+                                                        <assign variable="j" expression="quantity*226"/>
+                                                        <assign variable="cl" expression="cl+j"/>
+                                                    </then>
+                                                    <else>
+                                                        <if expression="k==&quot;5&quot;">
+                                                            <then>
+                                                                <output expression="&quot;You've choosen Salmon fish.Could you please let me know the number of blowls of salmons you have consumed.(1bowl =100grams).&quot;" newline="True"/>
+                                                                <input variable="quantity"/>
+                                                                <assign variable="j" expression="quantity*256"/>
+                                                                <assign variable="cl" expression="cl+j"/>
+                                                            </then>
+                                                            <else>
+                                                                <output expression="&quot;You have entered an invalid response&quot;" newline="True"/>
+                                                            </else>
+                                                        </if>
+                                                    </else>
+                                                </if>
+                                            </else>
+                                        </if>
+                                    </else>
+                                </if>
+                            </else>
+                        </if>
+                    </else>
+                </if>
+                <output expression="&quot;Have you consumed any other food items?&quot;" newline="True"/>
+                <input variable="l"/>
+            </do>
+            <breakpoint/>
+            <declare name="steps, u" type="Integer" array="False" size=""/>
+            <declare name="go, ol" type="String" array="False" size=""/>
+            <assign variable="cl2" expression="0"/>
+            <output expression="&quot;Hello &quot;&amp;rname&amp;&quot; lets start counting down the amount of calories you have burnt today.&quot;" newline="True"/>
+            <output expression="&quot;How many steps have made today.&quot;" newline="True"/>
+            <input variable="steps"/>
+            <assign variable="u" expression="steps*0.04"/>
+            <assign variable="cl2" expression="u"/>
+            <assign variable="ol" expression="&quot;yes&quot;"/>
+            <while expression="ol==&quot;yes&quot;">
+                <output expression="&quot;Thank you for your response.Now lets countdown clories burnt on excersices if made any.&quot;" newline="True"/>
+                <output expression="&quot;Please select an option in the given below list if you've made any of thoese excersices if you haven't made any of these please enter 'no'.please enter 'non' if u haven't made any excersice at all.&quot;" newline="True"/>
+                <output expression="&quot;1.push ups&quot;" newline="True"/>
+                <output expression="&quot;2.situps&quot;" newline="True"/>
+                <output expression="&quot;3.bridge&quot;" newline="True"/>
+                <output expression="&quot;4.triceps bench dip&quot;" newline="True"/>
+                <output expression="&quot;5.lunge&quot;" newline="True"/>
+                <input variable="go"/>
+                <if expression="go==&quot;no&quot;">
+                    <then>
+                        <output expression="&quot;I am extreamly sorry,but the excersice you have done isn't on the list.Could you please enter the amount of calories you have burnt on the excersice.&quot;" newline="True"/>
+                        <input variable="h"/>
+                        <assign variable="cl2" expression="cl2+h"/>
+                        <output expression="&quot;Have you made any more excersices?&quot;" newline="True"/>
+                    </then>
+                    <else>
+                        <if expression="go==&quot;1&quot;">
+                            <then>
+                                <output expression="&quot;You've choosen push-ups.could you please enter the amount of time you've spent on push-ups in minutes &quot;" newline="True"/>
+                                <input variable="h"/>
+                                <assign variable="f" expression="h*7"/>
+                                <assign variable="cl2" expression="cl2+f"/>
+                                <output expression="&quot;Have you made any more excersices?&quot;" newline="True"/>
+                            </then>
+                            <else>
+                                <if expression="go==&quot;2&quot;">
+                                    <then>
+                                        <output expression="&quot;You've choosen sit-ups.could you please enter the amount of time you've spent on sit-ups in minutes(moderate pace)&quot;" newline="True"/>
+                                        <input variable="h"/>
+                                        <assign variable="f" expression="h*3"/>
+                                        <assign variable="cl2" expression="cl2+f"/>
+                                        <output expression="&quot;Have you made any more excersices?&quot;" newline="True"/>
+                                    </then>
+                                    <else>
+                                        <if expression="go==&quot;3&quot;">
+                                            <then>
+                                                <output expression="&quot;You've choosen Bridge.could you please enter the amount of time you've spent on Bridge in minutes&quot;" newline="True"/>
+                                                <input variable="h"/>
+                                                <assign variable="f" expression="h*8"/>
+                                                <assign variable="cl2" expression="cl2+f"/>
+                                                <output expression="&quot;Have you made any more excersices?&quot;" newline="True"/>
+                                            </then>
+                                            <else>
+                                                <if expression="go==&quot;4&quot;">
+                                                    <then>
+                                                        <output expression="&quot;You've choosen Triceps bench Dip.could you please enter the amount of time you've spent on Triceps dip.&quot;" newline="True"/>
+                                                        <input variable="h"/>
+                                                        <assign variable="f" expression="h*4"/>
+                                                        <assign variable="cl2" expression="cl2+f"/>
+                                                        <output expression="&quot;Have you made any more excersices?&quot;" newline="True"/>
+                                                    </then>
+                                                    <else>
+                                                        <if expression="go==&quot;5&quot;">
+                                                            <then>
+                                                                <output expression="&quot;You've choosen Lunge.could you please enter the amount of time you've spent on Lunge in minutes&quot;" newline="True"/>
+                                                                <input variable="h"/>
+                                                                <assign variable="f" expression="h*6"/>
+                                                                <assign variable="cl2" expression="cl2+f"/>
+                                                                <output expression="&quot;Have you made any more excersices?&quot;" newline="True"/>
+                                                            </then>
+                                                            <else>
+                                                                <output expression="&quot;Thats not a really good habit.please excersice daily.Your body needs it&quot;" newline="True"/>
+                                                                <output expression="&quot;Please enter 'leave' to leave this session.&quot;" newline="True"/>
+                                                            </else>
+                                                        </if>
+                                                    </else>
+                                                </if>
+                                            </else>
+                                        </if>
+                                    </else>
+                                </if>
+                            </else>
+                        </if>
+                    </else>
+                </if>
+                <input variable="ol"/>
+            </while>
+            <if expression="age&lt;=18">
+                <then>
+                    <assign variable="cl2" expression="cl2+2800"/>
+                </then>
+                <else>
+                    <if expression="age&lt;=30">
+                        <then>
+                            <assign variable="cl2" expression="cl2+2400"/>
+                        </then>
+                        <else>
+                            <if expression="age&lt;=60">
+                                <then>
+                                    <assign variable="cl2" expression="cl2+2000"/>
+                                </then>
+                                <else>
+                                    <assign variable="cl2" expression="cl2+1800"/>
+                                </else>
+                            </if>
+                        </else>
+                    </if>
+                </else>
+            </if>
+            <declare name="kilos" type="Integer" array="False" size=""/>
+            <output expression="&quot;Today you have consumed &quot;&amp;cl&amp;&quot; calories.&quot;" newline="True"/>
+            <output expression="&quot;Today you have Burnt &quot;&amp;cl2&amp;&quot; calories.&quot;" newline="True"/>
+            <assign variable="FinalGoalReachCalories" expression="cl2*100/CaloriesGoal"/>
+            <output expression="&quot;Today you have achieved &quot; &amp; FinalGoalReachCalories &amp; &quot;% on your Calories Goal&quot;" newline="True"/>
+            <assign variable="FinalGoalReachSteps" expression="steps*100/GoalSteps"/>
+            <output expression="&quot;Today you achieved &quot; &amp; FinalGoalReachSteps &amp; &quot;% of your goal on steps&quot;" newline="True"/>
+            <assign variable="net" expression="cl-cl2"/>
+            <if expression="net&gt;0">
+                <then>
+                    <assign variable="kilo" expression="(net/7700)*30"/>
+                    <output expression="&quot;Today you have gained &quot;&amp;net&amp;&quot; calories.&quot;" newline="True"/>
+                    <output expression="&quot;If you continue the same for next 30 days then you will gain &quot;&amp;kilo&amp;&quot; kg.&quot;" newline="True"/>
+                </then>
+                <else>
+                    <assign variable="net" expression="net*(-1)"/>
+                    <assign variable="kilo" expression="(net/7700)*30"/>
+                    <output expression="&quot;Today you have lost &quot;&amp;net&amp;&quot; calories&quot;" newline="True"/>
+                    <output expression="&quot;If you continue the for next 30 days then you will loose &quot;&amp;kilo&amp;&quot; kg.&quot;" newline="True"/>
+                </else>
+            </if>
+        </body>
+    </function>
+    <function name="w" type="Integer" variable="Weight">
+        <parameters>
+            <parameter name="rname" type="String" array="False"/>
+        </parameters>
+        <body>
+            <declare name="mis2, Weight" type="Integer" array="False" size=""/>
+            <declare name="WeightUnits" type="String" array="False" size=""/>
+            <assign variable="mis2" expression="1"/>
+            <while expression="mis2==1">
+                <output expression="rname &amp; &quot; which units would you give your weight to be in (kg/pound/st)&quot;" newline="True"/>
+                <comment text="height will be taken in different units and converted into kg's for furthur usage"/>
+                <input variable="WeightUnits"/>
+                <if expression="WeightUnits=&quot;kg&quot;">
+                    <then>
+                        <output expression="rname&amp;&quot; could you tell me your weight in kgs&quot;" newline="True"/>
+                        <input variable="Weight"/>
+                        <assign variable="mis2" expression="0"/>
+                    </then>
+                    <else>
+                        <if expression="WeightUnits=&quot;pound&quot;">
+                            <then>
+                                <output expression="rname&amp;&quot; could you tell me your weight in pounds&quot;" newline="True"/>
+                                <input variable="Weight"/>
+                                <assign variable="Weight" expression="Weight*0.453592"/>
+                                <assign variable="mis2" expression="0"/>
+                            </then>
+                            <else>
+                                <if expression="WeightUnits=&quot;st&quot;">
+                                    <then>
+                                        <output expression="rname&amp;&quot; could you tell me your weight in kgs&quot;" newline="True"/>
+                                        <input variable="Weight"/>
+                                        <assign variable="Weight" expression="Weight*6.35029"/>
+                                        <assign variable="mis2" expression="0"/>
+                                    </then>
+                                    <else>
+                                        <output expression="&quot;You selected the wrong units could you please re-enter &quot;" newline="True"/>
+                                        <comment text="If user typed wrong units loop will ask the user to re-entry of units"/>
+                                    </else>
+                                </if>
+                            </else>
+                        </if>
+                    </else>
+                </if>
+            </while>
+        </body>
+    </function>
+</flowgorithm>
