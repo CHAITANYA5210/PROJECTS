@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        font-family: 'josefin sans',sans-serif;
+    }
+        body{
+        }
+        .HOME{
+            background-image: url(BACKGROUND4.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 610px;
+        }
+        .hero{
+            width:100%;
+            background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6 )) ;
+        }
+        nav{
+            display: flex;
+            align-items: center;
+            justify-content:space-between;
+            padding-left:10%;
+            padding-right: 10%;
+            width: 100%;
+            height: 70px;
+            background-color: #0009;
+            line-height: 30px;
+        }
+        .logo{
+            color: white;
+            font-size: 28px;
+        }
+        span{
+            color: #ea1538;
+        }
+        nav ul li{
+            list-style-type: none;
+            display: inline-block;
+            padding: 10px 20px;
+        }
+        nav ul li a{
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        nav ul li a:hover{
+            color: white;
+            border: none;
+            background: #ea1538;
+            padding: 12px 30px;
+            color: white;
+            transition: .3s;
+            border-radius: 10px;
+        }
+        button{
+            border: none;
+            background: #ea1538;
+            border-radius: 5px;
+            padding: 12px 30px;
+            color: white;
+            font-weight: bold;
+            font-size: 15px;
+            transition: .4s;
+        }
+        button:hover{
+            border: none;
+            background: white;
+            color:  #ea1538;
+            transition: .4s;
+        }
+        h1{
+            color: white;
+            font-size: 60px;
+        }
+        .first{
+            padding-top: 150px;
+            padding-left: 125px;
+        }
+        .button1{
+            border: none;
+            background: #ea1538;
+            padding: 12px 30px;
+            border-radius: 5px;
+            color: white;
+            font-weight: bold;
+            font-size: 15px;
+            transition: .4s;
+        }
+.Table{
+    padding-left: 125px;
+
+}
+        .content-table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    min-width: 400px;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+.content-table{
+    width: 1000px;
+}
+
+.content-table thead tr {
+    background-color: #009879;
+    color: #ffffff;
+    text-align: left;
+    font-weight: bold;
+}
+
+.content-table th,
+.content-table td {
+    padding: 12px 15px;
+}
+
+.content-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.content-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.content-table tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
+}
+
+.content-table tbody tr.active-row {
+    font-weight: bold;
+    color: #009879;
+}
+
+.package-content{
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(200px, auto));
+	grid-gap: 2rem;
+	align-items: center;
+	margin-top: 5rem;
+}    
+.title{
+	text-align: center;
+}
+.title h2{
+	font-size: var(--h2-font);
+	line-height: 1.2;
+}
+.stars i{
+	color: var(--main-color);
+	font-size: 20px;
+}
+.thum:hover{
+	filter: brightness(100%) hue-rotate(45deg);
+	transform: scale(1.04);
+}
+.container-box{
+	background: var(--bg-color);
+	border: 1px solid #f0eded;
+	padding: 50px 10px;
+	border-radius: 4px;
+	transition: all 1s ease 0s;
+	cursor: pointer;
+    padding-left: 100px;
+}
+.container-img img{
+	height: 85px;
+	width: 85px;
+	padding: 15px;
+	background: var(--bg-color);
+	box-shadow: 5px 10px 30px rgb(85 85 85 / 20%);
+	border-radius: 4px;
+	margin-bottom: 15px;
+	cursor: pointer;
+}
+.container-box h4{
+	font-size: 24px;
+	font-weight: 600;
+	margin-bottom: 8px;
+}
+.container-box p{
+	font-size: 15px;
+	color: var(--second-color);
+}
+.container-box:hover{
+	box-shadow: 5px 30px 56.1276px rgb(55 55 55 / 12%);
+	border: 1px solid transparent;
+	transform: translateY(-3px);
+}
+.row-items{
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(250px, auto));
+	grid-gap: 2rem;
+	align-items: center;
+	text-align: center;
+	margin-top: 5rem;
+}
+H2{
+    font-family: "Trebuchet MS", sans-serif;
+    font-size: 2em;
+    padding-left: 230px;
+}
+    </style>
+    <body>
+        <div class="hero">
+            <nav> 
+                
+                <img src="Origin4.png" alt="Girl in a jacket" width="70" height="70">
+                    <ul>
+                        <li><a href="#">Product</a></li>
+                        <li><a href="#">Solutions</a></li>
+                        <li><a href="#">Devloper</a></li>
+                        <li><a href="#">Company</a></li>
+                        <li><a href="DATASHEET.html">Add Company</a></li>
+                        
+                    </ul>
+                    <button type="button"><a href="online.html" style="text-decoration: none;color: white;">Contact</a></button>
+            </nav>
+        </div>
+    <section class="Table">
+        
+        <br>
+        <B><H2 style="color:black">YEARLY TOP GDP 10 CONTRIBUTORS</H2></B>
+        
+        <table class="content-table">
+            <thead>
+              <tr>
+                <th>Rank</th>
+                <th>Name</th>
+                <th>Contribution</th>
+                <th>Networth</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>Domenic</td>
+                <td>2.3%</td>
+                <td>2.3B</td>
+              </tr>
+              <tr class="active-row">
+                <td>2</td>
+                <td>Sally</td>
+                <td>2.15%</td>
+                <td>1.90B</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>Nick & Co</td>
+                <td>2.01%</td>
+                <td>1.89B</td>
+              </tr>
+              <tr class="active-row">
+                <td>4</td>
+                <td>Helium Systems</td>
+                <td>1.99%</td>
+                <td>1.87B</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td>Coinbase Global</td>
+                <td>1.76%</td>
+                <td>1.66B</td>
+              </tr>
+              <tr class="active-row">
+                <td>6</td>
+                <td>Polygon</td>
+                <td>1.4%</td>
+                <td>1.54B</td>
+              </tr>
+              <tr>
+                <td>7</td>
+                <td>ConsenSys</td>
+                <td>1.23%</td>
+                <td>1.22B</td>
+              </tr>
+              <tr class="active-row">
+                <td>8</td>
+                <td>CoinSwitch Kuber</td>
+                <td>1.17%</td>
+                <td>1.34B</td>
+              </tr>
+              <td>9</td>
+              <td>Alchemy Insights</td>
+              <td>1.24%</td>
+              <td>2.45B</td>
+            </tr>
+            <tr class="active-row">
+                <td>10</td>
+                <td>Brave Software</td>
+                <td>1.17%</td>
+                <td>1.34B</td>
+              </tr>
+            </tbody>
+          </table>
+          <br>
+        <br>
+    </section>
+    </body>
+    </html>

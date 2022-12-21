@@ -1,0 +1,21 @@
+<script>
+    function koala(){
+      let Fname=document.getElementById("Fname");
+      let Lname=document.getElementById("Lname");
+      let email=document.getElementById("email");
+      let pass=document.getElementById("pass");
+      let cool=document.getElementById("cool");
+      if(Fname.value.trim() == "" || Lname.value.trim() == "" || email.value.trim() == "" || pass.value.trim() == "" || cool.value.trim() == ""){
+        alert("Please enter all the details");
+      }
+      else if(pass.value.length<7){
+        alert("password must at least be 7 characters");
+      }
+      else if(pass.value!=cool.value){
+        alert("incorrect password. Please try again");
+        open('sign.html');
+      }
+      else{
+        alert("correct one!");}
+    }
+  </script>
